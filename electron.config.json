@@ -1,0 +1,48 @@
+{
+  "appId": "com.example.weiliang",
+  "productName": "三零发帖助手",
+  "directories": {
+    "output": "dist",
+    "buildResources": "resources"
+  },
+  "files": [
+    "out/**/*",
+    "dist/**/*",
+    "node_modules/**/*",
+    "package.json"
+  ],
+  "nsis": {
+    "oneClick": false,
+    "allowElevation": true,
+    "allowToChangeInstallationDirectory": true,
+    "installerIcon": "./resources/win.ico",
+    "uninstallerIcon": "./resources/win.ico",
+    "installerHeaderIcon": "./resources/win.ico",
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "三零助手"
+  },
+  "extraResources": [
+    {
+      "from": "./src/preload",
+      "to": "./preload"
+    }
+  ],
+  "mac": {
+    "icon": "./public/icon.icns"
+  },
+  "win": {
+    "icon": "./resources/win.ico",
+    "target": [
+      "portable"
+    ]
+  },
+  "linux": {
+    "icon": "./resources/icon.png"
+  },
+  "asar": true,
+  "asarUnpack": [
+    "**/node_modules/pouchdb/**/*",
+    "my_database/**/*"
+  ]
+}
